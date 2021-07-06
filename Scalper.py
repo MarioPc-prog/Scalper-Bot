@@ -20,7 +20,7 @@ while not buyButton:
         addToCartBtn = addButton = Browser.find_element_by_class_name("btn-disabled")
         print("Button isn,t ready yet.")
         # Refresh page after a delay
-        time.sleep(2)
+        time.sleep(1)
         Browser.refresh()
     # Block lets you handle the error (aka solution)
     except:
@@ -36,7 +36,7 @@ while not goButton:
         goToCartBtn.click()
         print("Go To Cart Button Complete...")
         # Needed to not crash and time to search for element
-        time.sleep(2)
+        time.sleep(1)
         goButton = True
     except:
         print("Need to run test.. For failure of clicking the go to cart button ")
@@ -46,7 +46,7 @@ while not checkoutButton:
         checkoutBtn.click()
         print("Checkout Button Complete...")
         # Needed to not crash and time to search for element
-        time.sleep(2)
+        time.sleep(1)
         checkoutButton = True
     except:
         print("Need to run test For failure of clicking the checkout Button...")
@@ -54,6 +54,7 @@ print("Entering Log in Information.")
 # Locate the ID locator for username and password
 email = Browser.find_element_by_id("fld-e")
 email.send_keys("Mario.andresvega@yahoo.com")
+time.sleep(2)
 password = Browser.find_element_by_id("fld-p1")
 password.send_keys("Killersavage123")
 login = Browser.find_element_by_xpath("/html/body/div[1]/div/section/main/div[2]/div[1]/div/div/div/div/form/div[3]/button")
