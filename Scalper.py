@@ -21,13 +21,13 @@ while not buyButton:
         addToCartBtn = addButton = Browser.find_element_by_class_name("btn-primary")
         addToCartBtn.click()
         print("Add To Cart Button was Clicked")
+        # Needed to not crash and time to search for element
         time.sleep(3)
         buyButton = True
-print("Test Add To Cart Complete...")
-goToCartBtn = goButton = Browser.find_element_by_xpath(
-    "/html/body/div[8]/div/div[1]/div/div/div/div/div[1]/div[3]/a")
-goToCartBtn.click()
-print("Test Go To Cart Complete...")
-
-
-
+#If the buy button is true , then handle the correct logic to continue execution else handle errors
+if buyButton == True:
+    print("Test Add To Cart Complete...")
+    goToCartBtn = goButton = Browser.find_element_by_xpath(
+        "/html/body/div[8]/div/div[1]/div/div/div/div/div[1]/div[3]/a")
+    goToCartBtn.click()
+    print("Test Go To Cart Complete...")
