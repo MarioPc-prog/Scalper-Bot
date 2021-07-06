@@ -33,4 +33,4 @@ while not goButton:
         time.sleep(2)
         goButton = True
     except:
-        print("No Go Button.")
+        print("Need to run test.. For failure in clicking the go to cart button ")
