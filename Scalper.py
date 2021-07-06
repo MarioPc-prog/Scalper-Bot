@@ -1,6 +1,11 @@
 import time
 from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+
 # For #using Chrome , create an instance of Chrome WebDrier
+from selenium.webdriver.remote.webelement import WebElement
+
 Browser = webdriver.Chrome("/Users/maveg/OneDrive/Desktop/chromedriver")
 # Call Browser.get method too navigate to a page given by the url
 Browser.get("https://www.bestbuy.com/site/lego-icons-porsche-911-10295/6434063.p?skuId=6434063")
@@ -45,4 +50,14 @@ while not checkoutButton:
         checkoutButton = True
     except:
         print("Need to run test For failure of clicking the checkout Button...")
-print("Program Complete...")
+print("Entering Log in Information.")
+# Locate the ID locator for username and password
+email = Browser.find_element_by_id("fld-e")
+email.send_keys("Mario.andresvega@yahoo.com")
+password = Browser.find_element_by_id("fld-p1")
+password.send_keys("Killersavage123")
+login = Browser.find_element_by_xpath("/html/body/div[1]/div/section/main/div[2]/div[1]/div/div/div/div/form/div[3]/button")
+login.click()
+
+
+
