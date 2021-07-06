@@ -7,6 +7,7 @@ Browser.get("https://www.bestbuy.com/site/lego-icons-porsche-911-10295/6434063.p
 # Boolean flag to verify each button process
 buyButton = False
 goButton = False
+checkoutButton = False
 while not buyButton:
     # Test for blocks of code for errors
     try:
@@ -33,4 +34,15 @@ while not goButton:
         time.sleep(2)
         goButton = True
     except:
-        print("Need to run test.. For failure in clicking the go to cart button ")
+        print("Need to run test.. For failure of clicking the go to cart button ")
+while not checkoutButton:
+    try:
+        checkoutBtn = checkButton = Browser.find_element_by_class_name("btn-lg")
+        checkoutBtn.click()
+        print("Checkout Button Complete...")
+        # Needed to not crash and time to search for element
+        time.sleep(2)
+        checkoutButton = True
+    except:
+        print("Need to run test For failure of clicking the checkout Button...")
+print("Program Complete...")
