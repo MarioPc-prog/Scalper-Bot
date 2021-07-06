@@ -1,12 +1,12 @@
 import time
 from selenium import webdriver
-
 # For #using Chrome , create an instance of Chrome WebDrier
 Browser = webdriver.Chrome("/Users/maveg/OneDrive/Desktop/chromedriver")
 # Call Browser.get method too navigate to a page given by the url
-Browser.get("https://www.bestbuy.com/site/lego-ninjago-coles-speeder-car-71706/6395543.p?skuId=6395543")
-# Boolean flag to verify success and control within the while loop
+Browser.get("https://www.bestbuy.com/site/lego-icons-porsche-911-10295/6434063.p?skuId=6434063")
+# Boolean flag to verify each button process
 buyButton = False
+goButton = False
 while not buyButton:
     # Test for blocks of code for errors
     try:
@@ -14,7 +14,7 @@ while not buyButton:
         addToCartBtn = addButton = Browser.find_element_by_class_name("btn-disabled")
         print("Button isn,t ready yet.")
         # Refresh page after a delay
-        time.sleep(3)
+        time.sleep(2)
         Browser.refresh()
     # Block lets you handle the error (aka solution)
     except:
@@ -22,12 +22,15 @@ while not buyButton:
         addToCartBtn.click()
         print("Add To Cart Button was Clicked")
         # Needed to not crash and time to search for element
-        time.sleep(3)
+        time.sleep(2)
         buyButton = True
-#If the buy button is true , then handle the correct logic to continue execution else handle errors
-if buyButton == True:
-    print("Test Add To Cart Complete...")
-    goToCartBtn = goButton = Browser.find_element_by_xpath(
-        "/html/body/div[8]/div/div[1]/div/div/div/div/div[1]/div[3]/a")
-    goToCartBtn.click()
-    print("Test Go To Cart Complete...")
+while not goButton:
+    try:
+        goToCartBtn = goButton = Browser.find_element_by_xpath("/html/body/div[8]/div/div[1]/div/div/div/div/div[1]/div[3]/a")
+        goToCartBtn.click()
+        print("Go To Cart Button Complete...")
+        # Needed to not crash and time to search for element
+        time.sleep(2)
+        goButton = True
+    except:
+        print("No Go Button.")
