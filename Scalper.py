@@ -39,7 +39,7 @@ while not goButton:
         time.sleep(1)
         goButton = True
     except:
-        print("Need to run test.. For failure of clicking the go to cart button ")
+        print("Need to run test for failure of clicking the go to cart button ")
 while not checkoutButton:
     try:
         checkoutBtn = checkButton = Browser.find_element_by_class_name("btn-lg")
@@ -49,16 +49,24 @@ while not checkoutButton:
         time.sleep(1)
         checkoutButton = True
     except:
-        print("Need to run test For failure of clicking the checkout Button...")
-print("Entering Log in Information.")
-# Locate the ID locator for username and password
-email = Browser.find_element_by_id("fld-e")
-email.send_keys("Mario.andresvega@yahoo.com")
-time.sleep(2)
-password = Browser.find_element_by_id("fld-p1")
-password.send_keys("Killersavage123")
-login = Browser.find_element_by_xpath("/html/body/div[1]/div/section/main/div[2]/div[1]/div/div/div/div/form/div[3]/button")
-login.click()
+        print("Need to run test for failure of clicking the checkout Button...")
+logIn= False
+while not logIn:
+    try:
+        print("Entering Log in Information.")
+        # Locate the ID locator for username and password
+        email = Browser.find_element_by_id("fld-e")
+        # Send key to the browser
+        email.send_keys("Mario.andresvega@yahoo.com")
+        time.sleep(1)
+        password = Browser.find_element_by_id("fld-p1")
+        password.send_keys("Killersavage123")
+        login = Browser.find_element_by_xpath("/html/body/div[1]/div/section/main/div[2]/div[1]/div/div/div/div/form/div[3]/button")
+        login.click()
+        logIn = True
+    except:
+        print("Need to run test... For failure of loging in.")
+print("Up to Date")
 
 
 
